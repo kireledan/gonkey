@@ -1,8 +1,8 @@
-#Gonkey
+# Gonkey
 
-gonkey is a tiny configurator meant to replace ansible. Its meant to be minimal, but functional.
+I don't like the other configurators out there. They are either too complex for what they need to do, or are slow. Gonkey is meant to be a go-learning project and a desire to create a configurator that's light, simple, and easy to extend. 
 
-To Run
+## To Run
 
 To use it, simply run. Here's an example yaml file.
 
@@ -24,7 +24,7 @@ To use it, simply run. Here's an example yaml file.
 
 
 
-General Guidelines
+## General Guidelines
 
 All tasks are declared inside a tasks list. The program executes the corresponding module from the module name and runs with the given args. These modules are not case sensitive.
 
@@ -36,7 +36,7 @@ The currently available modules are:
 - template - copy a template file with the proper values
 - Copy - copy a file with desired mode,owner,group
 
-Command
+#### Command
 
 the command module only takes 1 argument, cmd. This is the command that is executed
 
@@ -48,7 +48,7 @@ the command module only takes 1 argument, cmd. This is the command that is execu
 
 
 
-lineinfile
+#### lineinfile
 
 This command will replace the entire line of that matches the search pattern.
 
@@ -60,7 +60,7 @@ This command will replace the entire line of that matches the search pattern.
           search: "<changeme>"
           replacewith: "changed"
 
-Service
+#### Service
 
 This will run a particular service command. Currently this only supports systemd and homebrew services.
 
@@ -73,7 +73,7 @@ This will run a particular service command. Currently this only supports systemd
 
 
 
-Template
+#### Template
 
 This writes a template to a desired directory given a file with values.
 
@@ -103,7 +103,7 @@ All variables from a valuefile are grabbed via .GetConfig "<desiredvalue>". Any 
 
 
 
-Copy
+#### Copy
 
 This will copy a file from src to dest. 
 
@@ -130,7 +130,7 @@ If you want to change the mode,user, or group, just add the arguments
 
 
 
-Hacking.
+## Hacking.
 
 To test
 
