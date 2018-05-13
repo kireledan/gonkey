@@ -1,0 +1,9 @@
+tasks:
+  - name: run a command
+    module: command
+    args:
+      cmd: "touch ./test_assets/derp"
+  - name: another
+    module: command
+    args:
+      cmd: "rm -f ./test_assets/derp"

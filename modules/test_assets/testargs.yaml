@@ -1,0 +1,4 @@
+args:
+  blah: "my arg"
+  another_one: 23
+  mylastarg: duh

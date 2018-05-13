@@ -1,0 +1,5 @@
+args:
+  TODO_DIR: "mydir"
+  TODO_FILE: "anotheffile"
+  DONE_FILE: "donefile"
+  REPORT_FILE: "reportfile"

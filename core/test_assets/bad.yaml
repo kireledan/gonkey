@@ -1,0 +1,9 @@
+tasks:
+  - name: run a command
+    module: command
+    args:
+      cmd: "touch derp1"
+  - name: another
+    module: notamodule
+    args:
+      cmd: "touch derp2"
