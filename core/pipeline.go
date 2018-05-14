@@ -27,6 +27,10 @@ func CreateSerialPipeline(file string) *task.SerialGroup {
 
 	taskgroup := readYaml(file)
 
+	if taskgroup == nil {
+		return nil
+	}
+
 	maintrack := task.NewSerialGroup()
 	for _, t := range taskgroup {
 		maintrack.AddChild(createTask(t))
