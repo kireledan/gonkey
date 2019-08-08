@@ -1,13 +1,14 @@
 package core
 
 import (
+	"errors"
+	"fmt"
+	"io/ioutil"
+	"reflect"
+
 	"github.com/kireledan/gonkey/modules"
 	"github.com/kireledan/gonkey/utils"
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
-	"fmt"
-	"errors"
-	"reflect"
 )
 
 type TaskList struct {

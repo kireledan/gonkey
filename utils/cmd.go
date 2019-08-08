@@ -3,8 +3,6 @@ package utils
 import (
 	"bytes"
 	"fmt"
-	"github.com/bramvdbogaerde/go-scp"
-	"golang.org/x/crypto/ssh"
 	"io/ioutil"
 	"log"
 	"net"
@@ -12,6 +10,9 @@ import (
 	"os/exec"
 	"strings"
 	"syscall"
+
+	"github.com/bramvdbogaerde/go-scp"
+	"golang.org/x/crypto/ssh"
 )
 
 func readKey(file string) ssh.AuthMethod {

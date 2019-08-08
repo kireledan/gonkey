@@ -1,11 +1,12 @@
 package modules
 
 import (
-	"github.com/kireledan/gonkey/utils"
 	"io"
 	"log"
 	"os"
 	"strconv"
+
+	"github.com/kireledan/gonkey/utils"
 )
 
 type Copy struct {

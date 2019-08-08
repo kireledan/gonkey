@@ -4,10 +4,11 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
-	"github.com/kireledan/gonkey/utils"
 	"io/ioutil"
 	"os"
 	"regexp"
+
+	"github.com/kireledan/gonkey/utils"
 )
 
 type changeset struct {

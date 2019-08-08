@@ -1,8 +1,9 @@
 package core
 
 import (
-	"github.com/kireledan/gonkey/modules"
 	"testing"
+
+	"github.com/kireledan/gonkey/modules"
 )
 
 func TestParsing(t *testing.T) {

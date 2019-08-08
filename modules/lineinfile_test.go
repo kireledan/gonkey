@@ -3,11 +3,12 @@ package modules
 import (
 	"bufio"
 	"bytes"
-	"github.com/kireledan/gonkey/utils"
 	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
+
+	"github.com/kireledan/gonkey/utils"
 )
 
 func TestFileReplacement(t *testing.T) {

@@ -2,9 +2,10 @@ package core
 
 import (
 	"errors"
+	"os"
+
 	"github.com/imkira/go-task"
 	"github.com/kireledan/gonkey/modules"
-	"os"
 )
 
 func createTask(m ssTask) task.Task {

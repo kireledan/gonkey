@@ -1,10 +1,11 @@
 package modules
 
 import (
-	"github.com/kireledan/gonkey/utils"
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/kireledan/gonkey/utils"
 )
 
 func TestServiceCommand(t *testing.T) {

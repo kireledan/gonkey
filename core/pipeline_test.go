@@ -1,9 +1,10 @@
 package core
 
 import (
-	"github.com/imkira/go-task"
 	"os"
 	"testing"
+
+	"github.com/imkira/go-task"
 )
 
 func TestPipeline(t *testing.T) {

@@ -2,11 +2,12 @@ package modules
 
 import (
 	"fmt"
-	"github.com/kireledan/gonkey/utils"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
 	"text/template"
+
+	"github.com/kireledan/gonkey/utils"
+	"gopkg.in/yaml.v2"
 )
 
 type Config map[string]string

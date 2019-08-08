@@ -1,9 +1,10 @@
 package modules
 
 import (
-	"github.com/kireledan/gonkey/utils"
 	"os"
 	"testing"
+
+	"github.com/kireledan/gonkey/utils"
 )
 
 func TestCopy(t *testing.T) {

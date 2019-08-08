@@ -2,9 +2,10 @@ package modules
 
 import (
 	"bufio"
-	"github.com/kireledan/gonkey/utils"
 	"os"
 	"testing"
+
+	"github.com/kireledan/gonkey/utils"
 )
 
 func TestArgParse(t *testing.T) {

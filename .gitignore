@@ -3,3 +3,4 @@
 Gopkg.lock
 vendor
 .idea/
+.vscode/

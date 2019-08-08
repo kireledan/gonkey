@@ -1,9 +1,10 @@
 package core
 
 import (
-	"github.com/kireledan/gonkey/modules"
 	"reflect"
 	"strings"
+
+	"github.com/kireledan/gonkey/modules"
 )
 
 var typeRegistry = make(map[string]reflect.Type)
