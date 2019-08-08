@@ -1,0 +1,8 @@
+github.com/bramvdbogaerde/go-scp v0.0.0-20170919175937-e1fc87afa325 h1:0XaLkziw9H6fdpGICLFtfj1xs1azezsRgpKtpvHd7x8=
+github.com/bramvdbogaerde/go-scp v0.0.0-20170919175937-e1fc87afa325/go.mod h1:aiQFnN5G0MivefWD+J4Em1a+CDyu/UBEmbNP5+8Gtd4=
+github.com/imkira/go-task v1.0.0/go.mod h1:xU9xcPxKeBOQTwx8ILmT8xLxrm/SFmyBhPO8SlCRyRI=
+golang.org/x/crypto v0.0.0-20180410182641-f70185d77e82 h1:0c/ZzqIhzEz0zWuq1pdvQSBA8/hHowhT8tIzCxBjGR8=
+golang.org/x/crypto v0.0.0-20180410182641-f70185d77e82/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v2 v2.2.1 h1:mUhvW9EsL+naU5Q3cakzfE91YhliOondGd6ZrsDBHQE=
+gopkg.in/yaml.v2 v2.2.1/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
