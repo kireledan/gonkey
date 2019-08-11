@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/kireledan/gonkey/modules"
+	"gotest.tools/assert"
 )
 
 func TestParsing(t *testing.T) {
@@ -27,7 +28,8 @@ func TestParsing(t *testing.T) {
 
 func TestModuleParse(t *testing.T) {
 	config := readTasks("./test_assets/example.yaml")
-	parsedmodules := createSSTasks(config)
+	parsedmodules, err := createSSTasks(config)
+	assert.NilError(t, err, "error parsing task list")
 
 	firstmodule := parsedmodules[0]
 
@@ -39,17 +41,6 @@ func TestModuleParse(t *testing.T) {
 
 func TestBadModuleParse(t *testing.T) {
 	config := readTasks("./test_assets/bad.yaml")
-	parsedmodules := createSSTasks(config)
-
-	firstmodule := parsedmodules[0]
-
-	if modules.GetModuleName(firstmodule.ModuleToRun) != "command" {
-		t.Error("incorrect parsed module.")
-	}
-
-	second := parsedmodules[1]
-
-	if second.ModuleToRun != nil {
-		t.Error("didnt get null")
-	}
+	_, err := createSSTasks(config)
+	assert.ErrorContains(t, err, "Unable to parse yaml")
 }

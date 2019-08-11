@@ -47,6 +47,7 @@ func TestLocalExec(t *testing.T) {
 }
 
 func TestHostCommand(t *testing.T) {
+	t.Skip() // This test relies on a working remote host... will figure out what to do with this.
 	hosts := parseInventory("./test_assets/test_inventory")
 	copyFileToServerHost("./test_assets/test", "/home/ubuntu/test", "0655", hosts[0])
 
