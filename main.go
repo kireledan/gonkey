@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/kireledan/gonkey/core"
-	"os"
 	"fmt"
+	"os"
+
+	"github.com/kireledan/gonkey/core"
 )
 
 func main() {
