@@ -3,13 +3,13 @@ package utils
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"io/ioutil"
-	"log"
 	"net"
 	"os"
 	"os/exec"
 	"strings"
-	"syscall"
+	"sync"
 
 	"github.com/bramvdbogaerde/go-scp"
 	"golang.org/x/crypto/ssh"
@@ -38,6 +38,7 @@ type Result struct {
 	Stderr  string
 	Command string
 	Args    []string
+	err     error
 }
 
 func (m *Result) GetRC() int {
@@ -54,45 +55,56 @@ func (m *Result) GetStderr() string {
 
 const defaultFailedCode = 1
 
-func ExecCmd(cmd string, done chan Result) {
-	parts := strings.Fields(cmd)
-
+func ExecCmd(cmd string) (string, error) {
 	cmd_exec := exec.Command("bash", "-c", cmd)
+	var wg sync.WaitGroup
 	var outbuf, errbuf bytes.Buffer
-	cmd_exec.Stdout = &outbuf
-	cmd_exec.Stderr = &errbuf
 
-	res := new(Result)
-
-	err := cmd_exec.Run()
-	res.Command = cmd
-	res.Args = parts
-	res.Stdout = outbuf.String()
-	res.Stderr = errbuf.String()
-
+	stdout, err := cmd_exec.StdoutPipe()
 	if err != nil {
-		// try to get the exit code
-		if exitError, ok := err.(*exec.ExitError); ok {
-			ws := exitError.Sys().(syscall.WaitStatus)
-			res.RC = ws.ExitStatus()
-		} else {
-			// This will happen (in OSX) if `name` is not available in $PATH,
-			// in this situation, exit code could not be get, and stderr will be
-			// empty string very likely, so we use the default fail code, and format err
-			// to string and set to stderr
-			log.Printf("Could not get exit code for failed program: %v", cmd)
-			res.RC = defaultFailedCode
-			if res.Stderr == "" {
-				res.Stderr = err.Error()
-			}
-		}
-	} else {
-		// success, exitCode should be 0 if go is ok
-		ws := cmd_exec.ProcessState.Sys().(syscall.WaitStatus)
-		res.RC = ws.ExitStatus()
+		return
 	}
 
-	done <- *res
+	stderr, err := cmd_exec.StderrPipe()
+	if err != nil {
+		return err
+	}
+
+	if err := cmd_exec.Start(); err != nil {
+		return err
+	}
+
+	wg.Add(2)
+	go func() {
+		defer wg.Done()
+		copy(stdout, outbuf)
+	}()
+
+	go func() {
+		defer wg.Done()
+		copy(stderr, errbuf)
+	}()
+
+	wg.Wait()
+
+	if err := cmd_exec.Wait(); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func copy(r io.Reader, target bytes.Buffer) {
+	buf := make([]byte, 80)
+	for {
+		n, err := r.Read(buf)
+		if n > 0 {
+			target.Write(buf[0:n])
+		}
+		if err != nil {
+			break
+		}
+	}
 }
 
 func execRemoteCommand(cmd string, server string, user string, key string) string {

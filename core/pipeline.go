@@ -10,8 +10,8 @@ import (
 
 func createTask(m ssTask) task.Task {
 	moduleastask := func(t task.Task, ctx task.Context) {
-		results := modules.RunModule(m.ModuleToRun)
 		println("RUNNING TASK =>>> " + m.Label)
+		results := modules.RunModule(m.ModuleToRun)
 		if results.GetRC() != 0 {
 			os.Stderr.WriteString("TASK FAILED -> " + results.Stderr)
 			t.Cancel(errors.New(results.GetStdout()))

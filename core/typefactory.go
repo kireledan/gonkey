@@ -18,4 +18,5 @@ func init() {
 	typeRegistry[strings.ToLower(reflect.TypeOf(modules.Service{}).Name())] = reflect.TypeOf(modules.Service{})
 	typeRegistry[strings.ToLower(reflect.TypeOf(modules.Template{}).Name())] = reflect.TypeOf(modules.Template{})
 	typeRegistry[strings.ToLower(reflect.TypeOf(modules.Copy{}).Name())] = reflect.TypeOf(modules.Copy{})
+	typeRegistry[strings.ToLower(reflect.TypeOf(modules.Package{}).Name())] = reflect.TypeOf(modules.Package{})
 }
